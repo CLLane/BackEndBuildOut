@@ -51,3 +51,21 @@ app.get('/api/v1/players', (request, response) => {
       response.status(500).json({ error });
     });
 })
+
+app.get('/api/v1/players/:id', (request, response) => {
+  database('players')
+    .where('id', request.params.id)
+    .select()
+    .then(players => {
+      if(players.length) {
+        response.status(200).json(players)
+      } else {
+        response.status(404).json({
+          error: `Could not find a player with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+  })
+});
