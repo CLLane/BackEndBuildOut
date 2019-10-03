@@ -67,5 +67,23 @@ app.get('/api/v1/players/:id', (request, response) => {
     })
     .catch(error => {
       response.status(500).json({ error });
-  })
+  });
+});
+
+  app.get('/api/v1/colleges/:id', (request, response) => {
+    database('colleges')
+      .where('id', request.params.id)
+      .select()
+      .then(colleges => {
+        if(colleges.length) {
+          response.status(200).json(colleges)
+        } else {
+          response.status(404).json({
+            error: `Could not find a college with id ${request.params.id}`
+          });
+        }
+      })
+      .catch(error => {
+      response.status(500).json({ error });
+  });
 });
