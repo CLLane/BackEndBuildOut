@@ -2,7 +2,7 @@ const mockData = require('../../../mockData')
 
 const createCollege = (knex, player) => {
   return knex('colleges').insert({
-    college: player.college
+    college: player.college || null
   }, 'id')
   .then(collegeId => {
     let playerPromises = {
@@ -11,7 +11,7 @@ const createCollege = (knex, player) => {
       height: player.height,
       weight: player.weight,
       birth_date: player.birth_date,
-      college_id: collegeId[0],
+      college_id: collegeId[0] || null,
       year_start: player.year_start,
       year_end: player.year_end
     }
@@ -20,7 +20,6 @@ const createCollege = (knex, player) => {
 }
 
 const createPlayer = (knex, player) => {
-  console.log('player', player)
   return knex('players').insert(player);
 };
 
