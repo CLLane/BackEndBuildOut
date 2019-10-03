@@ -21,19 +21,19 @@ let nightmare = stats({ show: true });
 //     console.error('Search failed:', error);
 //   });
 
-    goto('https://www.theguardian.com/football/datablog/2012/dec/24/world-best-footballers-top-100-list')
-    .wait('tbody')
-    .evaluate(() => {
-      let nodes = document.querySelectorAll('tr')
-      let list = [].slice.call(nodes)
-      return list.map(node => {
-        return node.innerText
-      })
-    })
-    .end()
-    .then( (result) => {
-      console.log(result);
-    })
-    .catch( (error) => {
-      console.error('Search failed:', error);
-    });
+    // goto('https://www.theguardian.com/football/datablog/2012/dec/24/world-best-footballers-top-100-list')
+    // .wait('tbody')
+    // .evaluate(() => {
+    //   let nodes = document.querySelectorAll('tr')
+    //   let list = [].slice.call(nodes)
+    //   return list.map(node => {
+    //     return node.innerText
+    //   })
+    // })
+    // .end()
+    // .then( (result) => {
+    //   console.log(result);
+    // })
+    // .catch( (error) => {
+    //   console.error('Search failed:', error);
+    // });
