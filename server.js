@@ -7,13 +7,13 @@ const results = [];
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'BYOB';
 
-app.locals.launches = [];
+// app.locals.launches = [];
 
 app.use(express.json());
 
 
 app.get('/', (request, response) => {
-  return response.send('Oh! Yeah its a Pet Box!')
+  return response.send('Hey its time to figure out who went where and some stats')
 });
 
 app.listen(app.get('port'), () => {
@@ -24,5 +24,5 @@ fs.createReadStream('player_data.csv')
   .pipe(csv())
   .on('data', data => results.push(data))
   .on('end', () => {
-    console.log(results)
+    console.log(results[0])
   })
