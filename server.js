@@ -101,11 +101,9 @@ app.post("/api/v1/colleges", (request, response) => {
 
 app.post("/api/v1/players", async (request, response) => {
   const player = request.body;
-  const collegeID = await database("colleges").where(
-    "college",
-    "like",
-    `%${player.college_id}%`
-  ).first();
+  const collegeID = await database("colleges")
+    .where("college", "like", `%${player.college_id}%`)
+    .first();
   const playerToInsert = { ...player, college_id: collegeID.id };
   for (let requiredParameter of [
     "name",
