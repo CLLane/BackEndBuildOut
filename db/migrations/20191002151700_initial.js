@@ -19,7 +19,7 @@ exports.up = function(knex) {
         .references('colleges.id')
       table.string('year_start')
       table.string('year_end')
-    });
+    })
   ]);
 };
 
