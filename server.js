@@ -143,5 +143,3 @@ app.post("/api/v1/players", async (request, response) => {
       response.status(500).json({ error });
     });
 });
-
-

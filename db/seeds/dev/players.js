@@ -12,7 +12,6 @@ const players = [];
     players.push(data)
   })
   .on("end", () => {
-    
   });
 
 const createCollege = (knex, college) => {
