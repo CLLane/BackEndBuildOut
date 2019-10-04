@@ -1,8 +1,5 @@
 const express = require("express");
 const app = express();
-const csv = require("csv-parser");
-const fs = require("fs");
-const results = [];
 const environment = process.env.NODE_ENV || "development";
 const configuration = require("./knexfile")[environment];
 const database = require("knex")(configuration);
@@ -17,13 +14,6 @@ app.listen(app.get("port"), () => {
     `${app.locals.title} is running on http://localhost:${app.get("port")}.`
   );
 });
-
-fs.createReadStream("player_data.csv")
-  .pipe(csv())
-  .on("data", data => results.push(data))
-  .on("end", () => {
-    console.log(results[0]);
-  });
 
 app.get("/", (request, response) => {
   return response.send(
@@ -108,3 +98,50 @@ app.post("/api/v1/colleges", (request, response) => {
       response.status(500).json({ error });
     });
 });
+
+app.post("/api/v1/players", async (request, response) => {
+  const player = request.body;
+  const collegeID = await database("colleges").where(
+    "college",
+    "like",
+    `%${player.college_id}%`
+  ).first();
+  const playerToInsert = { ...player, college_id: collegeID.id };
+  for (let requiredParameter of [
+    "name",
+    "position",
+    "height",
+    "weight",
+    "birth_date",
+    "college_id",
+    "year_start",
+    "year_end"
+  ]) {
+    if (!player[requiredParameter]) {
+      return response.status(422).send({
+        error: `Expected format: 
+        { 
+          name: < String >,
+          position: < String >,
+          height: < String >,
+          weight: < String >,
+          birth_date: < String >,
+          college_id: < String >
+          year_start: < String >,
+          year_end: < String > 
+        }
+          You're missing a "${requiredParameter}" property.`
+      });
+    }
+  }
+  database("players")
+    .insert(playerToInsert, "id")
+    .then(player => {
+      response.status(201).json({ id: player[0] });
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+

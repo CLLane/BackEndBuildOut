@@ -1,26 +1,40 @@
-const mockData = require('../../../mockData')
 
-const createCollege = (knex, player) => {
-  return knex('colleges').insert({
-    college: player.college || null
-  }, 'id')
-  .then(collegeId => {
-    let playerPromises = {
-      name: player.name,
-      position: player.position,
-      height: player.height,
-      weight: player.weight,
-      birth_date: player.birth_date,
-      college_id: collegeId[0] || null,
-      year_start: player.year_start,
-      year_end: player.year_end
-    }
-    return createPlayer(knex, playerPromises)
+const csv = require("csv-parser");
+const fs = require("fs");
+const colleges = [];
+const players = [];
+
+ fs.createReadStream("player_data.csv")
+  .pipe(csv())
+  .on("data", data =>{ if(!colleges.find(obj => obj.college === data.college)){
+    colleges.push(data)
+  } 
+    players.push(data)
   })
-}
+  .on("end", () => {
+    
+  });
+
+const createCollege = (knex, college) => {
+  return knex('colleges').insert({
+    college: college.college 
+  })
+};
 
 const createPlayer = (knex, player) => {
-  return knex('players').insert(player);
+  return knex('colleges').where('college', player.college).first()
+    .then(college => {
+      return knex('players').insert({
+        name: player.name,
+        position: player.position,
+        height: player.height,
+        weight: player.weight,
+        birth_date: player.birth_date,
+        college_id: college.id || null,
+        year_start: player.year_start,
+        year_end: player.year_end
+    })
+  })
 };
 
 
@@ -29,10 +43,16 @@ exports.seed = (knex) => {
     .then(() => knex('colleges').del())
     .then(() => {
       let collegePromises = [];
-      mockData.forEach(player => {
-        collegePromises.push(createCollege(knex, player));
-      });
-     return Promise.all(collegePromises)
+      colleges.forEach(college => {
+        collegePromises.push(createCollege(knex, college));
+      })
+      return Promise.all(collegePromises)
+    }).then(() => {
+      let playerPromises = [];
+      players.forEach(player => {
+        playerPromises.push(createPlayer(knex, player));
+      })
+      return Promise.all(playerPromises)
     })
     .catch(error => console.log(`Error seeding data: ${error}`));
 };
