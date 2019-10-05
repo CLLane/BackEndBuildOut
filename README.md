@@ -127,5 +127,10 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 > { "error": "Could not find a player with id 9461" }
 
 
-| Purpose | URL | Verb | Request Body | Sample Success Response |
-|----|----|----|----|----|
+# Table Structure
+
+## Colleges
+
+| id | college | created_at | updated_at |
+|----|----|----|----|
+| Add a favorite for a user | `/api/v1/users/:user_id/:favorites_type` | POST | `{see above for information to include in this object}` | `{"id": 2, "user_id": 1, "album_id": 558262493, "artist_name": "alt-J", "album_name": "An Awesome Wave", "artwork_url": "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg", "release_date": "2012-09-18T07:00:00Z", "content_advisory_rating": "notExplicit", "primary_genre_name": "Alternative"}` |
