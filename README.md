@@ -100,8 +100,26 @@
           }
 
   * POST 
+    > /api/v1/colleges
+      - A body is required for POST requests. The body should be structured in JSON. 
+        *example body*
+          > {
+	        >   "college": "Greek International"
+          > }
+
+        *example succesful return*
+          -  A succesful request will return the newly added college id in the form of an object.
+             > {
+             >  "id": 190
+             > }
+
+        *example error respnse*
+          {
+            error: Expected format: { college: <String> }. You're missing a \"college"\ property.
+          }
+
     > /api/v1/players
-      - A body is required for POST request. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles"
+      - A body is required for POST requests. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles".
         *example body*
           { 
             "name": "Greg",
