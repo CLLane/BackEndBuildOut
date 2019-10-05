@@ -126,3 +126,6 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 
 > { "error": "Could not find a player with id 9461" }
 
+
+| Purpose | URL | Verb | Request Body | Sample Success Response |
+|----|----|----|----|----|
