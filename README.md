@@ -14,7 +14,7 @@
 ## Calls 
 
 ### GET
-/api/v1/colleges
+#### /api/v1/colleges
 
 Will query for all colleges and return an array of college objects.
       
@@ -24,7 +24,7 @@ Will query for all colleges and return an array of college objects.
 
 ---------
 
-/api/v1/colleges/:id
+#### /api/v1/colleges/:id
 
 Will query the college table for a specific college by id.
 
@@ -38,7 +38,7 @@ Will query the college table for a specific college by id.
 
 ----------
 
-/api/v1/players
+#### /api/v1/players
 
 Will query for all players and return an array of player objects.  
 
@@ -48,7 +48,7 @@ Will query for all players and return an array of player objects.
 
 -----------
 
-/api/v1/players/:id
+#### /api/v1/players/:id
 
 Will query the college table for a specific college by id.
         
@@ -61,7 +61,7 @@ Will query the college table for a specific college by id.
 > { "error": "Could not find a player with id 900" }
 
 ### POST 
-/api/v1/colleges
+#### /api/v1/colleges
 
  A body is required for POST requests. The body should be structured in JSON. 
 
@@ -81,33 +81,34 @@ Will query the college table for a specific college by id.
   
   ------------
 
-### /api/v1/players
+#### /api/v1/players
 
-      - A body is required for POST requests. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles".
+A body is required for POST requests. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles".
 
-        *example body*
+*example body*
 
-          > { "name": "Greg","position": "C","height": "6-0","weight": "180","birth_date": "1988-08-03","college_id": "University of Georgia","year_start": "2019","year_end":"2020" }
+> { "name": "Greg","position": "C","height": "6-0","weight": "180","birth_date": "1988-08-03","college_id": "University of Georgia","year_start": "2019","year_end":"2020" }
         
-        *example succesful return*
+*example succesful return*
 
-          - A succesful request will return the newly added players id in the form of an object.
-            > { "id": 500 }
+A succesful request will return the newly added players id in the form of an object.
 
-        *example error return* 
+> { "id": 500 }
 
-          > { "error": "Expected format: {name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >,college_id: < String >, year_start: < String > } You're missing a \"year_end\" property." }
+*example error return* 
 
-  ### DELETE
-    ### /api/v1/players/:id
+> { "error": "Expected format: {name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >,college_id: < String >, year_start: < String > } You're missing a \"year_end\" property." }
 
-      - A DELETE request can be made by the above path where the ':id' is the id of the player you would like to delete.
+### DELETE
+#### /api/v1/players/:id
 
-        *example succesful return*
+A DELETE request can be made by the above path where the ':id' is the id of the player you would like to delete.
 
-          > 'The player was deleted'
+*example succesful return*
 
-        *example error return*
+> 'The player was deleted'
 
-          > { "error": "Could not find a player with id 9461" }
+*example error return*
+
+> { "error": "Could not find a player with id 9461" }
 
