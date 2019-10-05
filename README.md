@@ -2,6 +2,20 @@
   This API allows you to query data about NBA players and the colleges they attended.  You can query players and colleges as well as add a college or player.  You are also allowed to delete a player.  
 
   You can use your browser to access URLs. Heroku was used for deployment. 
+  
+## Setup Postgresql
+
+For information on how to do this read [this](https://postgresapp.com/documentation/remove.html)
+
+### Installation:
+* Head over to [Postgres.app](http://postgresapp.com/) to download and install PostgreSQL
+* When you click `initialize`, you should now be able to see that postgreSQL is running
+* To be able to use the command line tools, you will need to run the following commannd in your terminal to configure your $PATH `sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp`
+* You will need to close your terminal window and re-open it for the changes to take effect
+
+---------
+
+# API - Endpoints
 
 ## Base URL
 
