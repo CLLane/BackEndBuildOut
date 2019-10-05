@@ -22,7 +22,7 @@ Will query for all colleges and return an array of college objects.
         
 > [{ "id": 1, "college": "Duke University", "created_at": "2019-10-04T16:37:12.041Z", "updated_at": "2019-10-04T16:37:12.041Z" }, { "id": 2, "college": "Iowa State University", "created_at": "2019-10-04T16:37:12.047Z", "updated_at": "2019-10-04T16:37:12.047Z" }]
 
-|---------|
+---------
 
 /api/v1/colleges/:id
 
