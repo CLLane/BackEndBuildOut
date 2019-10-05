@@ -118,17 +118,7 @@ app.post("/api/v1/players", async (request, response) => {
     if (!player[requiredParameter]) {
       return response.status(422).send({
         error: `Expected format: 
-        { 
-          name: < String >,
-          position: < String >,
-          height: < String >,
-          weight: < String >,
-          birth_date: < String >,
-          college_id: < String >
-          year_start: < String >,
-          year_end: < String > 
-        }
-          You're missing a "${requiredParameter}" property.`
+        { name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >, college_id: < String > year_start: < String >, year_end: < String > } You're missing a "${requiredParameter}" property.`
       });
     }
   }
@@ -139,5 +129,23 @@ app.post("/api/v1/players", async (request, response) => {
     })
     .catch(error => {
       response.status(500).json({ error });
+    });
+});
+
+app.delete("/api/v1/players/:id", (request, response) => {
+  database("players")
+    .where("id", request.params.id)
+    .del()
+    .then(success => {
+      if (success) {
+        response.status(200).send(`The player was deleted`);
+      } else {
+        response.status(404).json({
+          error: `Could not find a player with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(err => {
+      response.status(500).json(err);
     });
 });
