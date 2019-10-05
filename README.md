@@ -103,9 +103,7 @@
     >> /api/v1/colleges
       - A body is required for POST requests. The body should be structured in JSON. 
         *example body*
-          > {
-	        >   "college": "Greek International"
-          > }
+          > { "college": "Greek International" }
 
         *example succesful return*
           -  A succesful request will return the newly added college id in the form of an object.
@@ -139,20 +137,7 @@
             >}
 
         *example error return* 
-          >{
-          >  "error": "Expected format: 
-          >                          {
-          >                            name: < String >, 
-          >                            position: < String >, 
-          >                            height: < String >, 
-          >                            weight: < String >, 
-          >                            birth_date: < String >,    
-          >                            college_id: < String >, 
-          >                            year_start: < String >, 
-          >                           
-          >                          }    
-          >            You're missing a \"year_end\" property."
-          >}
+          >{"error": "Expected format: {name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >,     >college_id: < String >, year_start: < String > } You're missing a \"year_end\" property."}
 
   * DELETE
     > /api/v1/players/:id
