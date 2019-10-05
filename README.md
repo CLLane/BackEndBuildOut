@@ -153,3 +153,15 @@
                                     }    
                       You're missing a \"year_end\" property."
           }
+
+  * DELETE
+    > /api/v1/players/:id
+      - A DELETE request can be made by the above path where the ':id' is the id of the player you would like to delete.
+
+        *example succesful return*
+          'The player was deleted'
+
+        *example error return*
+          {
+            "error": "Could not find a player with id 9461"
+          }
