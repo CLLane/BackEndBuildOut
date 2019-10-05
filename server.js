@@ -118,17 +118,7 @@ app.post("/api/v1/players", async (request, response) => {
     if (!player[requiredParameter]) {
       return response.status(422).send({
         error: `Expected format: 
-        { 
-          name: < String >,
-          position: < String >,
-          height: < String >,
-          weight: < String >,
-          birth_date: < String >,
-          college_id: < String >
-          year_start: < String >,
-          year_end: < String > 
-        }
-          You're missing a "${requiredParameter}" property.`
+        { name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >, college_id: < String > year_start: < String >, year_end: < String > } You're missing a "${requiredParameter}" property.`
       });
     }
   }

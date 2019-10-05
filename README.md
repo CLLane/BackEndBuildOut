@@ -98,3 +98,40 @@
           {
             "error": "Could not find a player with id 900"
           }
+
+  * POST 
+    > /api/v1/players
+      - A body is required for POST request. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles"
+        *example body*
+          { 
+            "name": "Greg",
+            "position": "C",
+            "height": "6-0",
+            "weight": "180",
+            "birth_date": "1988-08-03",
+            "college_id": "University of Georgia",
+            "year_start": "2019",
+            "year_end":"2020"
+          }
+        
+        *example succesful return*
+          - A succesful request will return the newly added players id in the form of an object.
+            {
+              "id": 500
+            }
+
+        *example error return* 
+          {
+            "error": "Expected format: 
+                                    {
+                                      name: < String >, 
+                                      position: < String >, 
+                                      height: < String >, 
+                                      weight: < String >, 
+                                      birth_date: < String >,    
+                                      college_id: < String >, 
+                                      year_start: < String >, 
+                                     
+                                    }    
+                      You're missing a \"year_end\" property."
+          }
