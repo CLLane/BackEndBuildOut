@@ -14,13 +14,13 @@
 ## Calls 
 
   ### GET
-    ### /api/v1/colleges
+/api/v1/colleges
 
-      - Will query for all colleges and return an array of college objects.
+Will query for all colleges and return an array of college objects.
       
-        *example succesful return* 
+*example succesful return* 
         
-          > [{ "id": 1, "college": "Duke University", "created_at": "2019-10-04T16:37:12.041Z", "updated_at": "2019-10-04T16:37:12.041Z" }, { "id": 2, "college": "Iowa State University", "created_at": "2019-10-04T16:37:12.047Z", "updated_at": "2019-10-04T16:37:12.047Z" }]
+  > [{ "id": 1, "college": "Duke University", "created_at": "2019-10-04T16:37:12.041Z", "updated_at": "2019-10-04T16:37:12.041Z" }, { "id": 2, "college": "Iowa State University", "created_at": "2019-10-04T16:37:12.047Z", "updated_at": "2019-10-04T16:37:12.047Z" }]
 
     ### /api/v1/colleges/:id
 
