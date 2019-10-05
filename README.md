@@ -7,7 +7,7 @@
 
   All URLs referenced in the documentation have the following base: 
 
-  > https://byob-round2.herokuapp.com
+  https://byob-round2.herokuapp.com
 
   The API is served over HTTPS. To ensure data privacy, HTTP is supported through localhost.
 
