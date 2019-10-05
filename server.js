@@ -141,3 +141,21 @@ app.post("/api/v1/players", async (request, response) => {
       response.status(500).json({ error });
     });
 });
+
+app.delete("/api/v1/players/:id", (request, response) => {
+  database("players")
+    .where("id", request.params.id)
+    .del()
+    .then(success => {
+      if (success) {
+        response.status(200).send(`The player was deleted`);
+      } else {
+        response.status(404).json({
+          error: `Could not find a player with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(err => {
+      response.status(500).json(err);
+    });
+});
