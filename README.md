@@ -13,7 +13,7 @@
 
 ## Calls 
 
-  ### GET
+### GET
 /api/v1/colleges
 
 Will query for all colleges and return an array of college objects.
@@ -36,7 +36,7 @@ Will query the college table for a specific college by id.
 
 > { "error": "Could not find a college with id 500" }
 
-|----------|
+----------
 
 /api/v1/players
 
@@ -46,7 +46,7 @@ Will query for all players and return an array of player objects.
 
 > [{ "id": 1,"name": "Shareef Abdur-Rahim","position": "F","height": "6-9","weight": "225","birth_date": "December  11, 1976","college_id": 6,"year_start": "1997","year_end": "2008" }, { "id": 2,"name": "Tom Abernethy","position": "F","height": "6-7","weight": "220","birth_date": "May 6, 1954","college_id": 7,"year_start": "1977","year_end": "1981" }]
 
-|-----------|
+-----------
 
 /api/v1/players/:id
 
@@ -60,25 +60,28 @@ Will query the college table for a specific college by id.
 
 > { "error": "Could not find a player with id 900" }
 
-  ### POST 
-    ### /api/v1/colleges
+### POST 
+/api/v1/colleges
 
-      - A body is required for POST requests. The body should be structured in JSON. 
+ A body is required for POST requests. The body should be structured in JSON. 
 
-        *example body*
+ *example body*
 
-          > { "college": "Greek International" }
+ > { "college": "Greek International" }
 
-        *example succesful return*
+ *example succesful return*
 
-          -  A succesful request will return the newly added college id in the form of an object.
-             > { "id": 190 }
+ A succesful request will return the newly added college id in the form of an object.
+             
+ > { "id": 190 }
 
-        *example error respnse*
+ *example error respnse*
 
-          > {error: Expected format: { college: <String> }. You're missing a \"college"\ property. }
+ > {error: Expected format: { college: <String> }. You're missing a \"college"\ property. }
+  
+  ------------
 
-    ### /api/v1/players
+### /api/v1/players
 
       - A body is required for POST requests. The body should be structured in JSON. The API is set up to find the proper college_id by comparing   strings be as explicet as possible with the Universities name for instance if a player went to UCLA write out "University of California Los Angeles".
 
