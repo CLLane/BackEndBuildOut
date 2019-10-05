@@ -13,7 +13,7 @@
 
 ## Calls 
 
-  # GET
+  ### GET
     ### /api/v1/colleges
 
       - Will query for all colleges and return an array of     college object.
@@ -44,7 +44,7 @@
         *example succesful return*
           > { "error": "Could not find a player with id 900" }
 
-  # POST 
+  ### POST 
     ### /api/v1/colleges
 
       - A body is required for POST requests. The body should be structured in JSON. 
@@ -79,7 +79,7 @@
 
           > { "error": "Expected format: {name: < String >, position: < String >, height: < String >, weight: < String >, birth_date: < String >,college_id: < String >, year_start: < String > } You're missing a \"year_end\" property." }
 
-  # DELETE
+  ### DELETE
     ### /api/v1/players/:id
 
       - A DELETE request can be made by the above path where the ':id' is the id of the player you would like to delete.
@@ -89,6 +89,6 @@
           > 'The player was deleted'
 
         *example error return*
-        
+
           > { "error": "Could not find a player with id 9461" }
 
