@@ -127,6 +127,8 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 > { "error": "Could not find a player with id 9461" }
 
 
+# Request Cheatsheet 
+
 | Purpose | URL | Verb | Request Body | Sample Success Response |
 |----|----|----|----|----|
 | Return all colleges | `/api/v1/colleges` | GET | none | `[{ "id": 1, "college": "Duke University", "created_at": "2019-10-04T16:37:12.041Z", "updated_at": "2019-10-04T16:37:12.041Z" }, { "id": 2, "college": "Iowa State University", "created_at": "2019-10-04T16:37:12.047Z", "updated_at": "2019-10-04T16:37:12.047Z" }]` |
