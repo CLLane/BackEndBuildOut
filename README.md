@@ -127,10 +127,12 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 > { "error": "Could not find a player with id 9461" }
 
 
-# Table Structure
-
-## Colleges
-
-| id | college | created_at | updated_at |
-|----|----|----|----|
-| Add a favorite for a user | `/api/v1/users/:user_id/:favorites_type` | POST | `{see above for information to include in this object}` | `{"id": 2, "user_id": 1, "album_id": 558262493, "artist_name": "alt-J", "album_name": "An Awesome Wave", "artwork_url": "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg", "release_date": "2012-09-18T07:00:00Z", "content_advisory_rating": "notExplicit", "primary_genre_name": "Alternative"}` |
+| Purpose | URL | Verb | Request Body | Sample Success Response |
+|----|----|----|----|----|
+| Return all colleges | `/api/v1/colleges` | GET | none | `[{ "id": 1, "college": "Duke University", "created_at": "2019-10-04T16:37:12.041Z", "updated_at": "2019-10-04T16:37:12.041Z" }, { "id": 2, "college": "Iowa State University", "created_at": "2019-10-04T16:37:12.047Z", "updated_at": "2019-10-04T16:37:12.047Z" }]` |
+| Get a specific college | `/api/v1/colleges/:id` | GET | none | `[{ "id": 100, "college": "University of Oregon", "created_at": "2019-10-04T16:37:12.195Z", "updated_at": "2019-10-04T16:37:12.195Z" }]` |
+| Get all Players | `/api/v1/players` | GET | none | `[{ "id": 1,"name": "Shareef Abdur-Rahim","position": "F","height": "6-9","weight": "225","birth_date": "December  11, 1976","college_id": 6,"year_start": "1997","year_end": "2008" }, { "id": 2,"name": "Tom Abernethy","position": "F","height": "6-7","weight": "220","birth_date": "May 6, 1954","college_id": 7,"year_start": "1977","year_end": "1981" }]`|
+| Get a specific player | `/api/v1/players/:id` | GET | none | `[{"id": 74,"name": "Chris Andersen","position": "F-C","height": "6-10","weight": "245","birth_date": "July 7, 1978","college_id": 54,"year_start": "2002","year_end": "2017" }]` |
+| Add a new college | `/api/v1/colleges` | POST | `{ "college": "Greek International" }` | `{ "id": 190 }` |
+| Add a new player | `/api/v1/players` | POST | `{ "name": "Greg","position": "C","height": "6-0","weight": "180","birth_date": "1988-08-03","college_id": "University of Georgia","year_start": "2019","year_end":"2020" }` | `{ "id": 500 }` |
+| Remove a player | `/api/v1/players` | DELETE | none | `The player was deleted` |
