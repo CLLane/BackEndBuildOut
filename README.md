@@ -3,8 +3,6 @@
 
   You can use your browser to access URLs. Heroku was used for deployment. 
 
----------
-
 # API - Endpoints
 
 ## Base URL
