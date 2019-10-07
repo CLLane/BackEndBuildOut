@@ -3,18 +3,18 @@ const express = require("express");
 const app = express();
 //Here we are assigning the invocation of express to the variable app so we can utilize it else where in the file.
 const environment = process.env.NODE_ENV || "development";
-
+//Here we are saying the variable environment is assigned to the local host or the heroku development requirement 
 const configuration = require("./knexfile")[environment];
-
+//We are requiring/importing the environment value from knex
 const database = require("knex")(configuration);
-
+//here we are creating a connection to the database via knex
 app.set("port", process.env.PORT || 3000);
-
+//We are setting the value of port to the environment or the localhost:3000;
 app.locals.title = "BYOB";
 //We have declared that the title of our project is BYOB
 
 app.use(express.json());
-
+//Use express with json
 app.listen(app.get("port"), () => {
   //Above we are telling express (via the global app) to listen to the port
   console.log(
