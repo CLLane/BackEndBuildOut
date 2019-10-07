@@ -58,7 +58,7 @@ Will query the college table for a specific college by id.
           
 > [{"id": 74,"name": "Chris Andersen","position": "F-C","height": "6-10","weight": "245","birth_date": "July 7, 1978","college_id": 54,"year_start": "2002","year_end": "2017" }]
         
-*example successful response*
+*example error response*
 
 > { "error": "Could not find a player with id 900" }
 
