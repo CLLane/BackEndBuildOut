@@ -126,3 +126,6 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 | Add a new college | `/api/v1/colleges` | POST | `{ "college": "Greek International" }` | `{ "id": 190 }` |
 | Add a new player | `/api/v1/players` | POST | `{ "name": "Greg","position": "C","height": "6-0","weight": "180","birth_date": "1988-08-03","college_id": "University of Georgia","year_start": "2019","year_end":"2020" }` | `{ "id": 500 }` |
 | Remove a player | `/api/v1/players` | DELETE | none | `The player was deleted` |
+
+
+![Project Board](https://github.com/CLLane/BackEndBuildOut/projects/1)
