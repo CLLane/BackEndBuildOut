@@ -128,4 +128,4 @@ A DELETE request can be made by the above path where the ':id' is the id of the 
 | Remove a player | `/api/v1/players` | DELETE | none | `The player was deleted` |
 
 
-![Project Board](https://github.com/CLLane/BackEndBuildOut/projects/1)
+[Project Board](https://github.com/CLLane/BackEndBuildOut/projects/1)
